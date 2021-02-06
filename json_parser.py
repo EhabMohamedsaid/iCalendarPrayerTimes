@@ -18,7 +18,8 @@ def generate_calendar(data):
                 if not k == "asr_2":
                     e = ics.Event()
                     prayer_time = date + ' ' + v + ':00'
-                    e.name = k
+                    name = k.replace("_", " ")
+                    e.name = name.title()
                     e.begin = prayer_time
                     c.events.add(e)
 
