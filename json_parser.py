@@ -10,18 +10,25 @@ def read_json():
     generate_calendar(data)
 
 def generate_calendar(data):
-    c = ics.Calendar()
+    no_alarm = ics.Calendar()
+
     for key, value in dict.items(data['times']):
         date = key
         for k, v in dict.items(data['times'][key]):
             if not k == "date":
                 if not k == "asr_2":
-                    e = ics.Event()
-                    prayer_time = date + ' ' + v + ':00'
-                    name = k.replace("_", " ")
-                    e.name = name.title()
-                    e.begin = prayer_time
-                    c.events.add(e)
+                    silent_event = ics.Event()
 
-    with open('GeneratedCalendar/prayerCalendar' + year + '.ics', 'w') as my_file:
-        my_file.writelines(c)
+                    prayer_time = date + ' ' + v + ':00'
+
+                    # Replace underscores with spaces
+                    name = k.replace("_", " ")
+
+                    # Capitalize every word
+                    silent_event.name = name.title()
+                    silent_event.begin = prayer_time
+
+                    no_alarm.events.add(silent_event)
+
+    with open('GeneratedCalendar/prayerCalendarNoAlarm' + year + '.ics', 'w') as my_file:
+        my_file.writelines(no_alarm)
