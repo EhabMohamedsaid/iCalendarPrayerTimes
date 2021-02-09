@@ -2,11 +2,12 @@ import requests
 import datetime
 import os.path
 
-year = str(datetime.date.today().year)
-# api-endpoint
 
+year = str(datetime.date.today().year)
+
+# api-endpoint
 def api_endpoint():
-    return "https://www.londonprayertimes.com/api/times/?format=json&key=2a99f189-6e3b-4015-8fb8-ff277642561d&24hours=true&year=" + year
+    return "https://www.londonprayertimes.com/api/times/?format=json&key=70bb0d1d-7d54-4d3e-868e-264ac8b88f91&24hours=true&year=" + year
 
 def timetable_exists():
     return os.path.isfile("yearlyCalendarOutput/Calendar" + year + ".json")

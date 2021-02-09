@@ -30,5 +30,5 @@ def generate_calendar(data):
 
                     no_alarm.events.add(silent_event)
 
-    with open('GeneratedCalendar/prayerCalendarNoAlarm' + year + '.ics', 'w') as my_file:
+    with open('GeneratedCalendar/LondonEnglandPrayerCalendar.ics', 'w') as my_file:
         my_file.writelines(no_alarm)
