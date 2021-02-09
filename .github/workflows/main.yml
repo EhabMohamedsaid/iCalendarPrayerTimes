@@ -1,0 +1,20 @@
+# This is a basic workflow to help you get started with Actions
+
+name: scheduled-yearly-calendar
+
+on:
+schedule:
+- cron: “0 0 1 1 *” # runs every year
+jobs:
+build:
+runs-on: ubuntu-latest
+ steps:
+   - name: checkout repo main
+     uses: actions/checkout@v2 # checkout the repository main to github runner.
+   - name: setup python
+     uses: actions/setup-python@v2
+     with:
+       python-version: 3.9 # install the python needed
+   - name: execute py script # run the main.py to get the latest data
+     run: |
+       python main.py
