@@ -3,12 +3,12 @@
 name: scheduled-yearly-calendar
 
 on:
-schedule:
-- cron: “0 0 1 1 *” # runs every year
+ schedule:
+ - cron: “0 0 1 1 *” # runs every year
 jobs:
-build:
-runs-on: ubuntu-latest
- steps:
+ my_job:
+  runs-on: ubuntu-latest
+  steps:
    - name: checkout repo main
      uses: actions/checkout@v2 # checkout the repository main to github runner.
    - name: setup python
