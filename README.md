@@ -1,6 +1,6 @@
 # iCalendarPrayerTimes ![scheduled-yearly-calendar](https://github.com/EhabMohamedsaid/iCalendarPrayerTimes/workflows/scheduled-yearly-calendar/badge.svg)
 
-Simple Python script to connect to the London Unified Prayer Times API and export the output as an .ics file
+Simple Python script to connect to the [London Unified Prayer Times API](https://www.londonprayertimes.com/api/) and export the output as an .ics file
 
 The script is run annually by Github Actions to generate a prayer calendar for the current year. **This calendar is only valid in London and the region within the M25**
 
