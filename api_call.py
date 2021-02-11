@@ -1,6 +1,7 @@
 import requests
 import datetime
 import os.path
+import pathlib
 
 
 year = str(datetime.date.today().year)
@@ -14,4 +15,5 @@ def timetable_exists():
 
 def download_json(api_endpoint):
     json_file = requests.get(api_endpoint)
+    pathlib.Path("./yearlyCalendarOutput").mkdir(parents=True, exist_ok=True) # Checks if the directory already exists
     open("./yearlyCalendarOutput/Calendar" + year + ".json", 'wb').write(json_file.content)
