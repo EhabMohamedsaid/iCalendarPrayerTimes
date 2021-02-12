@@ -8,7 +8,7 @@ The script is run annually by Github Actions to generate a prayer calendar for t
 
 This is the .ics file to subscribe to
 
-    https://github.com/EhabMohamedsaid/iCalendarPrayerTimes/blob/main/GeneratedCalendar/LondonEnglandPrayerCalendar.ics
+    https://raw.githubusercontent.com/EhabMohamedsaid/iCalendarPrayerTimes/main/GeneratedCalendar/LondonEnglandPrayerCalendar.ics
   
 
 ## Subscription to calendar
