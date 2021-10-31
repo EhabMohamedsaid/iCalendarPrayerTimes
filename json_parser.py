@@ -12,9 +12,9 @@ def read_json():
     generate_calendar(data)
 
 
-def is_dst(dt,timeZone):
-   aware_dt = timeZone.localize(dt)
-   return aware_dt.dst() != datetime.timedelta(0,0)
+# def is_dst(dt,timeZone):
+#    aware_dt = timeZone.localize(dt)
+#    return aware_dt.dst() != datetime.timedelta(0,0)
 
 
 timeZone = pytz.timezone("Europe/London")
@@ -33,11 +33,11 @@ def generate_calendar(data):
                     prayer_time = date + ' ' + v + ':00'
 
                     # subtracts 1 hour from dst due to overcorrection on calendars
-                    if is_dst(dt,timeZone):
-                        time = datetime.datetime.strptime(v, '%H:%M')
-                        adjusted_time = time - datetime.timedelta(hours=1)
-                        timestamp = adjusted_time.time()
-                        prayer_time = date + ' ' + timestamp.strftime('%H:%M') + ':00'
+                    # if is_dst(dt,timeZone):
+                    #     time = datetime.datetime.strptime(v, '%H:%M')
+                    #     adjusted_time = time - datetime.timedelta(hours=1)
+                    #     timestamp = adjusted_time.time()
+                    #     prayer_time = date + ' ' + timestamp.strftime('%H:%M') + ':00'
 
                     # Replace underscores with spaces
                     name = k.replace("_", " ")
