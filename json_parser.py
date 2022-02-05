@@ -23,6 +23,7 @@ def generate_calendar(data):
                     alarm = ics.AudioAlarm()
                     prayer_time = date + ' ' + v + ':00'
 
+                    silent_events = ["jamat", "sunrise"]
 
                     # Replace underscores with spaces
                     name = k.replace("_", " ")
@@ -30,10 +31,9 @@ def generate_calendar(data):
                     # Capitalize every word
                     event.name = name.title()
                     event.begin = prayer_time
-                    if "Jamat" not in k or "Sunrise" not in k:
+                    if not any(x in name for x in silent_events):
                         alarm.trigger = datetime.datetime.strptime(prayer_time, "%Y-%m-%d %H:%M:00")
-
-                    event.alarms = [alarm]
+                        event.alarms = [alarm]
 
                     calendar.events.add(event)
 
