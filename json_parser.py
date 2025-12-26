@@ -7,15 +7,10 @@ year = str(datetime.date.today().year)
 
 
 def read_json():
-    with open("./yearlyCalendarOutput/Calendar" + year +".json") as file:
+    with open("./yearlyCalendarOutput/Calendar" + year + ".json") as file:
         data = json.load(file)
     generate_calendar(data)
 
-def is_dst(dt,timeZone):
-   aware_dt = timeZone.localize(dt)
-   return aware_dt.dst() != datetime.timedelta(0)
-
-timeZone = pytz.timezone("Europe/London")
 
 def generate_calendar(data):
     calendar = ics.Calendar()
@@ -31,13 +26,6 @@ def generate_calendar(data):
                     prayer_time = date + ' ' + v + ':00'
 
                     silent_events = ["jamat", "sunrise"]
-
-                    #subtracts 1 hour from dst due to overcorrection on smartphone calendars
-                    if is_dst(dt,timeZone):
-                         time = datetime.datetime.strptime(v, '%H:%M')
-                         adjusted_time = time - datetime.timedelta(hours=1)
-                         timestamp = adjusted_time.time()
-                         prayer_time = date + ' ' + timestamp.strftime('%H:%M') + ':00'
 
                     # Replace underscores with spaces
                     name = k.replace("_", " ")
